@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors')
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 dotenv.config();
 
 const authRoute = require("./routes/AuthRoute");
@@ -18,4 +20,4 @@ mongoose.connect(mongoURI, {
     .then(()=> console.log("connected to database!"))
     .catch(err => console.error("Error connecting:", err))
 
-app.listen(3000, ()=> console.log("Server listeing on port 3000"));
+app.listen(5000, ()=> console.log("Server listeing on port 5000"));
